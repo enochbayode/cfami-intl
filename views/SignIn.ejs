@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFAMI</title>
+    <link rel="shortcut icon" href='../img/cfami.png'  type="image/x-icon">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" type="text/css" rel="stylesheet" >
+    <link href="style.css"  rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <!-- <link href="owl.carousel.min.css" rel="stylesheet">
+    <link href="owl.theme.default.min.css" rel="stylesheet"> -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css " rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="" style="background-color: #232E4D;">
+    <section>
+        <!-- <div class="about-bg"> -->
+            <div class="container"><br><br><br>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+    
+                       <div class="" style="background-color: white;">
+                            <div class=" shadow" style="padding:30px;">
+                                <div class="text-center">
+                                    <img src="../img/cfami.png" width="20%"  ><br><br><br>
+                                </div>
+    
+                                <% if (login.length > 0) { %>
+    
+                                    <div class="alert alert-danger"><%= login %></div>
+                                    
+                                <% } %>
+    
+                                <form action="/auth/SignIn" method="post">
+    
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+    
+    
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" name="password" class="form-control" id="exampleInputPassword" placeholder="Password" required>
+                                    </div>
+                                    
+    
+                                    <div class="text-center"><br>
+                                        <button type="submit" class="btn btn-primary" style="padding: 10px 40px;">Submit</button><br>
+                                        <br>
+                                        <!-- <p style="font-size:14px;">Not Yet have an account?<a href="/auth/SignUp"  style="color:blue" > Sign Up </a> </p> -->
+                                    </div>
+    
+                                    
+                                </form>
+                            </div>
+                       </div>
+    
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+        <!-- </div> -->
+    </section>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" type="text/javascript" ></script>
+    <script src="main.js" ></script>
+</body>
+</html>

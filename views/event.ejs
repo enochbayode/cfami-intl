@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFAMI</title>
+  <link rel="shortcut icon" href='../img/cfami.png'  type="image/x-icon">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" type="text/css" rel="stylesheet" >
+  <link href="css/style.css"  rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <link href="owl.carousel.min.css" rel="stylesheet">
+  <link href="owl.theme.default.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css " rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Navbar Begins -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+        <div class="" style="width: 50px; height: 20x;">
+          <img src="../img/cfami.png" width="100%">
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav justify-content-end Nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sermons">Sermons</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/events">Events</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Ministries
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/sadop">SADOP</a>
+              <a class="dropdown-item" href="/disom">DISOM</a>
+              <a class="dropdown-item" href="/abdgm">ABDGM</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blogs">Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  <!-- Navbar Ends -->
+
+      <div class="event-bg">
+        <h2 class="top-text">Upcoming Events</h2><br>
+      </div><br><br>
+
+      <div class="container">
+        <div class="row">
+            <% for (var i = 0; i < event.length; i++  ){ %>
+              <div class="col-sm-4">
+                  <div class="card" style="width: 100%;">
+                    <img class="card-img-top" src="../img/1.jpg" width="100%" height="280px" alt="Card image cap">
+                    <div class="card-body">
+                       <h5 class="blog-title"><%= event[i].title  %></h5>
+                          <i class="fa fa-calendar" aria-hidden="true">
+                              <span class="day"><%= event[i].date.toString().slice(0,4) %></span>
+                              <span class="day"><%= event[i].date.toString().slice(8,10) %></span>
+                              <span class="mos"><%= event[i].date.toString().slice(4,7) %></span>
+                              <span class="yrs"><%= event[i].date.toString().slice(11,15) %></span>
+                          </i><br>
+                          <i class="fa fa-map-marker" aria-hidden="true" style="color:#495057;"></i><span class="bolder" style="color:#495057;"> Location: <%= event[i].venue %></span><br>
+                          <p class="blog-text" style="color: #768495;"><%= event[i].excerpt %></p>
+                          <!-- <center>
+                            <a href="/event" data-toggle="tooltip">
+                            <button class="btn btn-primary msg-btn">
+                              Get more <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </button></a>
+                          </center> -->
+                    </div>
+                  </div><br>
+               </div>
+
+             <% } %>
+          </div>
+      </div>
+
+      <div class="bg">
+        <div class="container">
+          <div class="section">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="" style="width: 80px; height: 20x;">
+                  <center>
+                    <img src="../img/cfami.png" width="100%"><br>
+                  </center>
+                  
+                </div>
+                <p class="p1" style="font-size: 20px;">
+                  Connect with us via our social media platforms.
+                  
+                </p>
+                <!-- <i class="fab fa-facebook"></i> -->
+                <!--twitter-->
+                <a href="http://www.twitter.com/cfamihq"><button type="button" class="btn social-link"><i class="fa fa-twitter"></i></button></a>
+                <!--Google-->
+                <a href="https://chat.whatsapp.com/B51WD7mwJD0Cb3gAgia01K"><button type="button" class="btn social-link"><i class="fa fa-whatsapp"></i> </button></a>
+                <!--Google-->
+                <a href="https://web.facebook.com/Christforafricaministries/live/"><button type="button" class="btn social-link"><i class="fa fa-facebook"></i> </button></a>
+                <!--Google-->
+                <a href="https://instagram.com/christforafricaministries" target="_blank" rel="noopener noreferrer"><button type="button" class="btn social-link"><i class="fa fa-instagram"></i> </button></a>
+                <!--Youtube-->
+                <a href="https://www.youtube.com/channel/UCJwyQhwZole8VGCoAf7KQFA"><button type="button" class="btn social-link"><i class="fa fa-youtube"></i> </button></a>
+                  </div><br>
+
+              <div class="col-sm-2">
+                <h4 class="p1">Quick Links</h4><br><br>
+                <span class="p2 a_link"><a href="/about" class="p2"> About us</a></span><br><br>
+                <span class="p2 a_link"><a href="/contact" class="p2"> Contact us</a></span><br><br>
+                <span class="p2 a_link"><a href="/sermons" class="p2"> Sermons</a></span><br><br>
+                <span class="p2 a_link"><a href="/events" class="p2"> Events</a></span><br><br>
+                <span class="p2 a_link"><a href="/blogs" class="p2"> Blogs</a></span><br><br>
+              </div><br>
+
+              <div class="col-sm-3">
+                <h4 class="p1">Contact Information</h4><br><br>
+                <span class="p1"><i class="fa fa-map-marker " aria-hidden="true"></i> Christ for Africa Ministries International Solution City, Olude Osogbo, Osun state, Nigeria</span><br><br>
+                <span class="p2 a_link"><a href="callto:08038478080" class="p2"><i class="fa fa-phone" aria-hidden="true"></i>   +234 8038478080</a></span><br><br>
+              </div><br>
+
+              <div class="col-sm-3">
+                <h3 class="text-center bolder p1">NEWSLETTER</h3>
+                <p class="text-center p1">Subcribe to our news letter to get updated about new events</p>
+                
+                <form action="" method="">
+                  <div class="form-group" >
+                    <input type="email" class="form-control sub-newsletter" width="15px;" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email address" required>
+                  </div>
+                  <center><button class="btn btn-primary sub-btn bolder" style="width:70%;">Subcribe</button></center>
+                </form>
+              </div><br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="Js/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" type="text/javascript" ></script>
+    
+    <script src="Js/main.js" ></script>
+</body>
+</html>
