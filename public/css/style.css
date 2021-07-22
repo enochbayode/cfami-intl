@@ -315,8 +315,8 @@ a{
   linear-gradient(to right, rgba(14, 14, 15, 0.89), rgba(12, 12, 14, 0.856)),
   url(../img/bg1.jpeg);
   /* width: 100%; */
-  max-height: 900px;
-  /* min-height:400px; */
+  max-height: 1400px;
+  /* min-height:200px; */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

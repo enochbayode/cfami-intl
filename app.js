@@ -8,6 +8,7 @@ const secret  = require('./config/secret');
 const passport = require('passport');
 const flash =  require('connect-flash');
 const session = require('express-session');
+const { Nodemailing } = require('nodemailing');
 // const nodemailer = require('nodemailer');
 // const multiparty = require("multiparty");
 // const { connect, connection } = require('mongoose');
@@ -80,6 +81,20 @@ var db = mongoose.connection;
 db.once('open', function() {
 console.log("we are already connected to the server database")
 });
+
+// Email configuration
+// Nodemailing.send({
+//  Host: //your smtp host,
+//   Username: 'bayodeenoch@gmail.com',
+//   Password: //your email password or app password,
+//   To: //recipient email,
+//   From: //your email,
+//   Subject: //email subject,
+//   Body: //email body,
+// }).then((message) =>
+// //anything goes here....
+//    console.log("Email has been sent")
+// );
 
 app.post('/email', (req, res) => {
   //Send an email here but currently dummy email
