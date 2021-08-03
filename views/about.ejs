@@ -298,9 +298,9 @@
             <div class="wrapper text-center">
               <div class="pastor-carousel owl-carousel owl-theme">
                 <% for (var i = 0; i < pst.length; i++  ){ %>
-                  <div class="item" style="width: 60%;">
-                    <img class="d-block w-100 pst-img" src="<%= pst[i].imgUrl  %>" width="100%"> <br>
-                    <h5 class="text-center"><%= pst[i].name  %></h5>
+                  <div class="item">
+                    <img class="test-img" src="<%= pst[i].imgUrl  %>" style="width:50%; border-radius:100%;"> <br>
+                    <h5 class="text-center" style="font-family:Time New Roman"><%= pst[i].name  %></h5>
                   </div>
                 <% } %>
               </div>
@@ -366,7 +366,7 @@
                   <div class="form-group" >
                     <input type="email" class="form-control sub-newsletter" width="15px;" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email address" required>
                   </div>
-                  <center><button class="btn btn-primary sub-btn bolder" style="width:70%;">Subcribe</button></center>
+                  <center><button class="btn sub-btn bolder" style="width:70%;">Subcribe</button></center>
                 </form>
               </div><br>
             </div>

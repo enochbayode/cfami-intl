@@ -78,7 +78,6 @@ router.get('/about', (req,res)=>{
 })
 
 
-
 // contact
 router.get('/contact', (req,res)=>{
   res.render('contact', {title: 'contact Us'})
@@ -177,7 +176,6 @@ router.get('/UploadBgs', (req,res)=>{
               title: 'Upload blog',
               user: req.user,
               blog:blog
-      
           } );
       })
 
@@ -330,6 +328,18 @@ router.get('/sadop', (req,res)=>{
 
 });
 
+// blog-single
+router.get('/:id', (req,res)=>{
+  Blog.findOne({ _id :req.params.id})
+  .exec((err,blog)=>{
+      res.render('blog-single',{
+          user: req.user,
+          blog : blog,
+          title: 'Blog-Single'
+      })
+  })
+})
+
 // blogs
 router.get('/blogs', (req,res)=>{
   Blog
@@ -347,17 +357,6 @@ router.get('/blogs', (req,res)=>{
   })
 })
 
-// blog-single
-router.get('/:id', (req,res)=>{
-  Blog.findOne({ _id :req.params.id})
-  .exec((err,blog)=>{
-      res.render('blog-single',{
-          user: req.user,
-          blog : blog,
-          title: 'Blog-Single'
-      })
-  })
-})
 
 
 module.exports = router;

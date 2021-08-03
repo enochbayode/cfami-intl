@@ -56,10 +56,10 @@ const adminController = require('./Controllers/AdminController');
 app.use('/admin', adminController );
 
 //------------- Creating database---------
-app.use(bodyParser.json())
+app.use(express.json())
 
 // body parser middleware
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // connecting to mongodb
 const mongoose = require('mongoose');
@@ -71,16 +71,16 @@ mongoose.set('useCreateIndex', true);
 mongoose.connect(secret.databaseURL, {
     useNewUrlParser:true,
     useUnifiedTopology:true
+}).then(()=>{
+  console.log('we are already connected to the server database');
+  app.listen(secret.PORT, () => {
+    console.log("This application is already running on port " , secret.PORT);
+});
 }).catch(err => {
   console.log('could not connect to mongoDB', err)
 })
  
 
-var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-console.log("we are already connected to the server database")
-});
 
 // Email configuration
 // Nodemailing.send({
@@ -102,6 +102,7 @@ app.post('/email', (req, res) => {
   res.json({message: 'Message received!'})
 });
 
-app.listen(secret.PORT, () => {
-    console.log("This application is already running on port " , secret.PORT);
+app.all('*', (req, res)=>{
+  console.log('You have entered the port')
+  res.status(404).render('404_error')
 });

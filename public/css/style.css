@@ -73,14 +73,14 @@ a{
 .reg-btn{
   background-color: antiquewhite;
   color: #232E4D;
-  /* padding: 10px 20px; */
-  border-radius: 70px
+  padding: 10px 40px;
+  border-radius: 10px
 }
 .reg-btn:hover{
   background-color: #232E4D;
   color: antiquewhite;
-  /* padding: 10px 20px; */
-  border-radius: 70px;
+  padding: 11px 41px;
+  border-radius: 10px;
 }
 
 .DISOM-btn{
@@ -114,7 +114,7 @@ a{
 }
 
 .sub-btn:hover{
-  background-color: #232E4D;
+  background-color: #5679da;
   color: antiquewhite;
 }
 
@@ -402,6 +402,16 @@ a{
   text-decoration: none;
 }
 
+.error{
+  font-size:200px;
+  color:#25A4E2;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.error-p{
+  color:black;
+  font-family: 'Times New Roman', Times, serif;
+}
 
 
 
