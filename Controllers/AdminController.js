@@ -16,7 +16,7 @@ const youtubelink = require('../model/youtubelink');
 const storage = multer.diskStorage({
     destination: './public/uploads/files',
     filename:function(req,file, cb){
-        cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+        cb(null, Date.now() + path.extname(file.originalname));
     }
 });
 
@@ -27,12 +27,12 @@ const upload = multer({
 }).fields([
 
     {
-        name: "imgUrl",
+        name: "img",
         maxCount: 4 
     },
 
     {
-        name: "fileUrl",
+        name: "file",
         maxCount: 1
     }
 ])
@@ -109,7 +109,7 @@ router.post('/post-SadopTestimony',  (req,res)=>{
 
 //this route helps us to delete a blog post
 router.post('/sadopTestimonyDelete/:id', (req,res)=>{
-    
+
     SadopTestimony.findByIdAndRemove({ _id : req.params.id }).then((SadopTestimony)=>{
         res.redirect('/UploadSadopInfo')
     })
@@ -124,7 +124,6 @@ router.post('/post-SadopProgram',  (req,res)=>{
             console.log(err)
         }else{
             console.log( req.files.imgUrl[0].filename);
-            
             const sadopProgram = new SadopProgram({
                 imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
             }).save((err,sadopProgram)=>{

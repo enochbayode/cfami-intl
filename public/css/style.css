@@ -1,6 +1,16 @@
-h1 h2 h3 h4 h5 h6 p{
-  font-family: Cambria;
+h1,h2,h3,h4,h5,h6{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: bold;
 }
+
+.nav-link{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important; 
+}
+
+p{
+  font-family:Georgia, 'Times New Roman', Times, serif
+}
+
 body {
   
   font-family: 'GestaRegular', Arial, Helvetica, sans-serif;
@@ -114,8 +124,8 @@ a{
 }
 
 .sub-btn:hover{
-  background-color: #5679da;
-  color: antiquewhite;
+  background-color: white;
+  color: black;
 }
 
 .social-link{
@@ -137,16 +147,19 @@ a{
 
 .p1{
   color: antiquewhite;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .p2{
   color: antiquewhite;
   text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .p2 :hover{
   color: #F7FAFF;
   text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .bolder{
