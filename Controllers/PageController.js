@@ -330,18 +330,6 @@ router.get('/sadop', (req,res)=>{
 
 });
 
-// blog-single
-router.get('/:id', (req,res)=>{
-  Blog.findOne({ _id :req.params.id})
-  .exec((err,blog)=>{
-      res.render('blog-single',{
-          user: req.user,
-          blog : blog,
-          title: 'Blog-Single'
-      })
-  })
-})
-
 // blogs
 router.get('/blogs', (req,res)=>{
   Blog
@@ -356,6 +344,18 @@ router.get('/blogs', (req,res)=>{
         
       });
 
+  })
+})
+
+// blog-single
+router.get('/:id', (req,res)=>{
+  Blog.findOne({ _id :req.params.id})
+  .exec((err,blog)=>{
+      res.render('blog-single',{
+          user: req.user,
+          blog : blog,
+          title: 'Blog-Single'
+      })
   })
 })
 
