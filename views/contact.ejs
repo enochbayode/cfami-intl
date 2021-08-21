@@ -85,7 +85,7 @@
           <div class="row block-9">
             <div class="col-md-6 pr-md-5">
     
-              <form action="" method="" id="contact-form" role="form">
+              <form action="" method="post" id="contactForm" role="form">
                 <div class="form-group">
                   <input type="name" class="form-control" name='name' id="name" placeholder="Your Name" aria-describedby="nameHelp" required>
                 </div>
@@ -93,13 +93,13 @@
                   <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" aria-describedby="emailHelp" required>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="Subject" id="Subject" placeholder="subject" aria-describedby="nameHelp" require>
+                  <input type="text" class="form-control" name="Subject" id="subject" placeholder="subject" aria-describedby="nameHelp" require>
                 </div>
                 <div class="form-group">
                   <textarea name="message" id="message" cols="30" rows="7" class="form-control" id="message" placeholder="Message" required></textarea>
                 </div>
                 <div class="form-group">
-                  <input type="submit" id="submit" value="Send Message" class="btn msg-btn">
+                  <input type="submit" name="submit" id="submit" value="Send Message" class="btn msg-btn">
                 </div>
               </form>
             
@@ -175,15 +175,14 @@
       <script> 
     
         console.log(document.querySelector('#submit'))
-      // document.querySelector('#submit').onclick = function(){
-       //  alert('shit')
-      // }
+       document.querySelector('#submit').onclick = function(){
+         //alert('Sent')
+       }
    
    
        //Window.onload=function(){
          document.getElementById('contactForm').addEventListener('submit',submitForm);
    
-       
          function submitForm(e){
            e.preventDefault();
            var name = getInputVal('name');
@@ -192,14 +191,13 @@
            var message = getInputVal('message');
    
    
-           console.log(name, email, subject, message)
+           //console.log(name, email, subject, message)
        
            document.getElementById('contactForm').reset();
        
            //saveMessage(name, email, subject, message);
        
-         sendEmail(name, email, subject, message);
-       
+          sendEmail(name, email, subject, message)
          }
        
          function getInputVal(id){
@@ -216,21 +214,21 @@
            });
          }
        
-         function sendEmail(name, email, subject, message){
-           Email.send({
-             Host: "smtp.gmail.com",
-             Username: 'bayodeenoch@gmail.com',
-             Password: "ypegbnvmquwephqe",
-             To: 'bayodeenoch@gmail.com',
-             From: 'bayodeenoch@gmail.com',
-             Subject: `${name} send you a message`,
-             Body: `Name : ${name},
-                   Email : ${email}, 
-                   Subject : ${subject}, 
-                   Message: ${message}`
-       
-           })
-         }
+        function sendEmail(name, email, subject, message){
+          email.send({
+            Host: "smtp.gmail.com",
+            Username: 'cfami123@gmail.com',
+            Password: "heyunltkxpaiuiye",
+            To: 'cfami123@gmail.com',
+            From: 'cfami123@gmail.com',
+            Subject: `${name} send you a message`,
+            Body: `Name : ${name},
+                  Email : ${email}, 
+                  Subject : ${subject}, 
+                  Message: ${message}`
+      
+          })
+        };
      
      </script>
 

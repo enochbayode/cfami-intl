@@ -12,6 +12,8 @@ const Pastors = require('../model/pastors');
 const youtubelink = require('../model/youtubelink');
 const Gallery = require('../model/Gallery');
 
+
+
 router.get('/', (req,res)=>{
 
     Gallery

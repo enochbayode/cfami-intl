@@ -84,13 +84,16 @@ mongoose.connect(secret.databaseURL, {
 
 // Email configuration
 // Nodemailing.send({
-//  Host: //your smtp host,
-//   Username: 'bayodeenoch@gmail.com',
-//   Password: //your email password or app password,
-//   To: //recipient email,
-//   From: //your email,
-//   Subject: //email subject,
-//   Body: //email body,
+//   Host: "smtp.gmail.com",
+//   Username: 'cfami123@gmail.com',
+//   Password: "heyunltkxpaiuiye",
+//   To: 'cfami123@gmail.com',
+//   From: 'cfami123@gmail.com',
+//   Subject: `${name} send you a message`,
+//   Body: `Name : ${name},
+//         Email : ${email}, 
+//         Subject : ${subject}, 
+//         Message: ${message}`
 // }).then((message) =>
 // //anything goes here....
 //    console.log("Email has been sent")
