@@ -27,12 +27,12 @@ const upload = multer({
 }).fields([
 
     {
-        name: "img",
+        name: "imgUrl",
         maxCount: 4 
     },
 
     {
-        name: "file",
+        name: "fileUrl",
         maxCount: 1
     }
 ])
