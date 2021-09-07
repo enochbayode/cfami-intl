@@ -250,6 +250,44 @@ router.post('/SermonDelete/:id', (req,res)=>{
 
 });
 
+// =========================Events======================================
+
+router.post('/post-events',  (req,res)=>{
+
+    upload(req,res,(err)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log( req.files.imgUrl[0].filename);
+            
+            const event = new UpcomingEvent({
+                title : req.body.title,
+                date: req.body.date,
+                venue:req.body.venue,
+                imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
+            }).save((err,event)=>{
+                if(err){
+                    console.log(err)
+                }else{
+                    res.redirect('/UploadEvts');
+                    
+                }
+            })
+
+        }
+    })
+ 
+})
+
+//this route helps us to delete a events post
+router.post('/eventDelete/:id', (req,res)=>{
+    
+    UpcomingEvent.findByIdAndRemove({ _id : req.params.id }).then((UpcomingEvent)=>{
+        res.redirect('/UploadEvts')
+    })
+
+});
+
 // =========================Post Pastor======================================
 
 router.post('/post-pastor',  (req,res)=>{
@@ -345,43 +383,7 @@ router.post('/youtubelinkDelete/:id', (req,res)=>{
 
 });
 
-// =========================Events======================================
 
-router.post('/post-events',  (req,res)=>{
-
-    upload(req,res,(err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log( req.files.imgUrl[0].filename);
-            
-            const event = new UpcomingEvent({
-                title : req.body.title,
-                date: req.body.date,
-                venue:req.body.venue,
-                imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
-            }).save((err,event)=>{
-                if(err){
-                    console.log(err)
-                }else{
-                    res.redirect('/UploadEvts');
-                    
-                }
-            })
-
-        }
-    })
- 
-})
-
-//this route helps us to delete a excos post
-router.post('/eventDelete/:id', (req,res)=>{
-    
-    UpcomingEvent.findByIdAndRemove({ _id : req.params.id }).then((UpcomingEvent)=>{
-        res.redirect('/UploadEvts')
-    })
-
-});
 
 
 module.exports = router;
