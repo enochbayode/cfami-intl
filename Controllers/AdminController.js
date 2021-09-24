@@ -12,30 +12,48 @@ const SadopRegLink = require('../model/sadopRegLink');
 const UpcomingEvent = require('../model/Events');
 const Gallery = require('../model/Gallery');
 const youtubelink = require('../model/youtubelink');
+const {Storage} = require('../storage');
 
-const storage = multer.diskStorage({
-    destination: './public/uploads/files',
-    filename:function(req,file, cb){
-        cb(null, Date.now() + path.extname(file.originalname));
-    }
-});
+console.log(process.env.Storage_url) 
+
+const storage = new Storage();
+
+// const storage = multer.diskStorage({
+//     destination: './public/uploads/files',
+//     filename:function(req,file, cb){
+//         cb(null, Date.now() + path.extname(file.originalname));
+//     }
+// });
+
+const upload = storage.upload.fields([
+
+        {
+            name: "imgUrl",
+            maxCount: 4 
+        },
+    
+        {
+            name: "fileUrl",
+            maxCount: 1
+        }
+    ])
 
 // inside multer({}), file upto only 100MB can be uploaded
-const upload = multer({
-    storage : storage
+// const upload = multer({
+//     storage : storage
     
-}).fields([
+// }).fields([
 
-    {
-        name: "imgUrl",
-        maxCount: 4 
-    },
+//     {
+//         name: "imgUrl",
+//         maxCount: 4 
+//     },
 
-    {
-        name: "fileUrl",
-        maxCount: 1
-    }
-])
+//     {
+//         name: "fileUrl",
+//         maxCount: 1
+//     }
+// ])
 
 router.post('/post',  (req,res)=>{
 
@@ -57,7 +75,7 @@ router.post('/post-bg',  (req,res)=>{
                 category:req.body.category,
                 excerpt:req.body.excerpt,
                 editor1:req.body.editor1,
-                imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
+                imgUrl: process.env.Storage_url +req.files.imgUrl[0].filename
             }).save((err,blog)=>{
                 if(err){
                     console.log(err)
@@ -93,7 +111,7 @@ router.post('/post-SadopTestimony',  (req,res)=>{
             const sadopTestimony = new SadopTestimony({
                 name : req.body.title,
                 editor1:req.body.editor1,
-                imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
+                imgUrl: process.env.Storage_url +req.files.imgUrl[0].filename
             }).save((err,sadopTestimony)=>{
                 if(err){
                     console.log(err)
@@ -125,7 +143,7 @@ router.post('/post-SadopProgram',  (req,res)=>{
         }else{
             console.log( req.files.imgUrl[0].filename);
             const sadopProgram = new SadopProgram({
-                imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
+                imgUrl: process.env.Storage_url +req.files.imgUrl[0].filename
             }).save((err,sadopProgram)=>{
                 if(err){
                     console.log(err)
@@ -183,7 +201,7 @@ router.post('/post-gallery',  (req,res)=>{
             const gallery = new Gallery({
                 name : req.body.name,
                 // excerpt:req.body.excerpt,
-                imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
+                imgUrl: process.env.Storage_url +req.files.imgUrl[0].filename
             }).save((err, gallery)=>{
                 if(err){
                     console.log(err)
@@ -225,8 +243,8 @@ router.post('/post-sermon',  (req,res)=>{
                 category:req.body.category,
                 excerpt:req.body.excerpt,
                 content:req.body.content,
-                fileUrl:'/uploads/files/' +req.files.fileUrl[0].filename,
-                imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
+                fileUrl:process.env.Storage_url +req.files.fileUrl[0].filename,
+                imgUrl: process.env.Storage_url +req.files.imgUrl[0].filename
             }).save((err, ser)=>{
                 if(err){
                     console.log(err)
@@ -264,7 +282,7 @@ router.post('/post-events',  (req,res)=>{
                 title : req.body.title,
                 date: req.body.date,
                 venue:req.body.venue,
-                imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
+                imgUrl: process.env.Storage_url +req.files.imgUrl[0].filename
             }).save((err,event)=>{
                 if(err){
                     console.log(err)
@@ -300,7 +318,7 @@ router.post('/post-pastor',  (req,res)=>{
             
             const pastor = new Pastor({
                 name : req.body.name,
-                imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
+                imgUrl: process.env.Storage_url +req.files.imgUrl[0].filename
             }).save((err, pastor)=>{
                 if(err){
                     console.log(err)
@@ -336,7 +354,7 @@ router.post('/post-disom',  (req,res)=>{
             
             const disom = new Disom({
                 editor1 : req.body.editor1,
-                imgUrl: '/uploads/files/' +req.files.imgUrl[0].filename
+                imgUrl: process.env.Storage_url +req.files.imgUrl[0].filename
             }).save((err, disom)=>{
                 if(err){
                     console.log(err)
