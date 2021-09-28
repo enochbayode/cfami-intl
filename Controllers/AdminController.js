@@ -234,7 +234,7 @@ router.post('/post-sermon',  (req,res)=>{
         if(err){
             console.log(err)
         }else{
-            console.log( req.files.imgUrl[0].filename);
+            console.log(req.files.fileUrl[0].filename);
             
             const ser = new Sermon({
                 title : req.body.title,

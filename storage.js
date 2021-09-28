@@ -8,7 +8,7 @@ const path = require('path');
 class Storage {
   constructor() {
     //defining the list of accepted media files
-    this.media = ['jpeg', 'png', 'jpg', 'gif', 'mp4', 'mp3'];
+    this.media = ['jpeg', 'png', 'jpg', 'gif', 'mp4', 'mp3','mpeg'];
     // setting up google firebase storage
     this.storage = new googleCloud.Storage({
       projectId: process.env.Firebase_Project_ID, //'<Firebase Project ID'
@@ -20,6 +20,7 @@ class Storage {
 
     // validating the file type of the images uploaded
     this.fileFilter = (req, file, cb) => {
+      console.log(file);
       if (this.media.includes(file.mimetype.split('/')[1])) {
         cb(null, true);
         return;
@@ -30,8 +31,9 @@ class Storage {
       }
     };
 
-    //media files should not exceed 10 MB
-    this.fileSize = 10 * 1024 * 1024;
+    //media files should not exceed 100 MB
+    this.fileSize = 100 * 1024 * 1024;
+
 
     // setting up multer for form data handling
     this.upload = multer({
@@ -58,6 +60,23 @@ class Storage {
       limits: { fileSize: this.fileSize }, //image should not exceed 10 MB
       fileFilter: this.fileFilter,
     });
+    
+  }
+
+  async startUpload(req, res) {
+    let filename;
+
+    try {
+        const upload = util.promisify(this.upload.any());
+
+        await upload(req, res);
+
+        filename = req.files[0].filename;
+    } catch (e) {
+        //Handle your exception here
+    }
+
+    // return res.json({fileUploaded: filename});
   }
 
   // helper function for creating new file name
