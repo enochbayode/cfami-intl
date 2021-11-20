@@ -264,7 +264,7 @@
                             </button></a>
                           </center>
                     </div>
-                  </div><br>
+                  </div>
                </div>
 
              <% } %>
@@ -281,7 +281,7 @@
             <div class="col-sm-6">
               <center>
                 <h2>Videos & Gallery</h2>
-                <p>Watch live stream session from our youtube videos </p>
+                <p>Watch our facebook live stream session</p>
               </center>
             </div>
             <div class="col-sm-3"></div>
@@ -297,22 +297,15 @@
                 <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
 
                 <!-- Your embedded video player code -->
-                <div class="fb-video" data-href="<%= link[i].link %>" data-width="750" data-show-text="false">
+                <div class="fb-video" data-href="<%= link[i].link %>" data-width="1500" data-height="750" data-show-text="false">
                   <div class="fb-xfbml-parse-ignore">
                     <blockquote cite="https://www.facebook.com/facebook/videos/10153231379946729/">
                       <a href="https://www.facebook.com/facebook/videos/10153231379946729/">How to Share With Just Friends</a>
                       <p>How to share with just friends.</p>
-                      Posted by <a href="https://www.facebook.com/facebook/">Facebook</a>
+                      Posted by <a href="https://www.facebook.com/facebook/">CFAMI</a>
                     </blockquote>
                   </div>
                 </div>
-
-                <!-- 16:9 aspect ratio -->
-                
-                  <!-- <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="<%= link[i].link %>" allowfullscreen></iframe>
-                  </div><br><br> -->
-
                   
                <% } %> 
               </center>
