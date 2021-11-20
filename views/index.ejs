@@ -291,12 +291,29 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
               <center>
-                
+              <% for (var i = 0; i < link.length; i++  ){ %>
+                <!-- Load Facebook SDK for JavaScript -->
+                <div id="fb-root"></div>
+                <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+
+                <!-- Your embedded video player code -->
+                <div class="fb-video" data-href="<%= link[i].link %>" data-width="750" data-show-text="false">
+                  <div class="fb-xfbml-parse-ignore">
+                    <blockquote cite="https://www.facebook.com/facebook/videos/10153231379946729/">
+                      <a href="https://www.facebook.com/facebook/videos/10153231379946729/">How to Share With Just Friends</a>
+                      <p>How to share with just friends.</p>
+                      Posted by <a href="https://www.facebook.com/facebook/">Facebook</a>
+                    </blockquote>
+                  </div>
+                </div>
+
                 <!-- 16:9 aspect ratio -->
-                <% for (var i = 0; i < link.length; i++  ){ %>
-                  <div class="embed-responsive embed-responsive-16by9">
+                
+                  <!-- <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="<%= link[i].link %>" allowfullscreen></iframe>
-                  </div><br><br>
+                  </div><br><br> -->
+
+                  
                <% } %> 
               </center>
                 
