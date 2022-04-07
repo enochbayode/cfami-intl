@@ -15,7 +15,7 @@ const { Nodemailing } = require('nodemailing');
 // const { connect, connection } = require('mongoose');
 
 //declaration and creation of express app
-var app = express();
+const app = express();
 
 //-----------------settting view up engines---------
 // view engine setup
@@ -76,7 +76,7 @@ mongoose.connect(secret.databaseURL, {
   console.log('we are already connected to the server database');
   app.listen(secret.PORT, () => {
     console.log("This application is already running on port " , secret.PORT);
-});
+  });
 }).catch(err => {
   console.log('could not connect to mongoDB', err)
 })

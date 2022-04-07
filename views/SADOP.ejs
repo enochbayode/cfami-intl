@@ -159,12 +159,12 @@
       <h3 class="text-center">Testimonies</h3><br>
       <div class="wrapper">  
         <div class="Testimony owl-carousel owl-theme">
-            <% for (var i = 0; i < sadopTestimony.length; i++  ){ %>
+            <% for (let i = 0; i < sadopTestimony.length; i++  ){ %>
               <center>
                 <div class="item">
-                  <div class="" >
-                    <img class="test-img" src="<%= sadopTestimony[i].imgUrl  %>" style="width: 50%; border-radius: 100%;"> <br>
-                  </div>
+                  <div class="" width="" >
+                    <img class="test-img" src="<%= sadopTestimony[i].imgUrl  %>" style="width: 50%; border-radius: 150%;">
+                  </div><br>
                 <h3 class="text-center"><%= sadopTestimony[i].name  %></h3>
                 <p class='text-center'>
                   <%- sadopTestimony[i].editor1  %>

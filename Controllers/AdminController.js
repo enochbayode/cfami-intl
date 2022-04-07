@@ -34,7 +34,7 @@ const upload = storage.upload.fields([
     
         {
             name: "fileUrl",
-            maxCount: 1
+            maxCount: 2
         }
     ])
 

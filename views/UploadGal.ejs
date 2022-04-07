@@ -214,7 +214,7 @@
                           <div class="modal-content" style="padding:5%">
                             <h4 style="font-weight:bold; text-align:center">Do you want to Delete this post ?</h4><br>
                            <center> 
-                                <form action="/admin/galleryDelete/<%= gallery[i].id %>" method="post">
+                                <form action="/admin/galleryDelete/<%= gallery[i].id %>" method="post" enctype="multipart/form-data">
                                     <input type="hidden">
                                     <button type="button" style="padding:10px 30px;" class="btn btn-secondary" data-dismiss="modal">No</button>
                                     <button class="btn btn-danger"  style="padding:10px 30px;" type="submit">Yes</button>  

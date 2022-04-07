@@ -318,12 +318,14 @@
               </div>
               <div class="col-sm-3"></div>
             </div>
-            <div class="wrapper text-center">
+            <div class="wrapper">
               <div class="pastor-carousel owl-carousel owl-theme">
                 <% for (var i = 0; i < pst.length; i++  ){ %>
                   <div class="item">
-                    <img class="test-img" src="<%= pst[i].imgUrl  %>" style="width:50%; border-radius:100%;"> <br>
+                    <center>
+                    <img class="test-img" src="<%= pst[i].imgUrl  %>" style="width:60%; border-radius:100%;"> <br>
                     <h5 class="text-center" style="font-family:Time New Roman"><%= pst[i].name  %></h5>
+                    </center>
                   </div>
                 <% } %>
               </div>

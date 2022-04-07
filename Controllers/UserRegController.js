@@ -76,7 +76,10 @@ router.get('/profile',isAuthenticated,  (req,res)=>{
 
 //login in user
 router.post('/SignIn',
-  passport.authenticate('local-login', { successRedirect: '/auth/profile', failureRedirect: '/auth/SignIn', failureFlash: true })
+  passport.authenticate('local-login',
+   { successRedirect: '/auth/profile',
+    failureRedirect: '/auth/SignIn',
+    failureFlash: true })
 );
 
 
