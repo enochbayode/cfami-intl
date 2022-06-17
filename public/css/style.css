@@ -142,6 +142,13 @@ a{
   font-size: 70px;
 }
 
+.top-text-small {
+  text-align: center;
+  padding-top: 0px;
+  color: white;
+  font-size: 30px;
+}
+
 .sub-btn{
   background-color: antiquewhite;
   color: #0553ac;
