@@ -11,8 +11,7 @@ const flash =  require('connect-flash');
 const session = require('express-session');
 const { Nodemailing } = require('nodemailing');
 // const nodemailer = require('nodemailer');
-// const multiparty = require("multiparty");
-// const { connect, connection } = require('mongoose');
+
 
 //declaration and creation of express app
 const app = express();
@@ -33,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //helps us to activate or gives permission to the server to know the user 
 app.use(session({
-    hidden: 'hidden',
+    secret: 'secret',
     saveUninitialized: true,
     resave: true
   }));
@@ -80,25 +79,6 @@ mongoose.connect(secret.databaseURL, {
 }).catch(err => {
   console.log('could not connect to mongoDB', err)
 })
- 
-
-
-// Email configuration
-// Nodemailing.send({
-//   Host: "smtp.gmail.com",
-//   Username: 'cfami123@gmail.com',
-//   Password: "heyunltkxpaiuiye",
-//   To: 'cfami123@gmail.com',
-//   From: 'cfami123@gmail.com',
-//   Subject: `${name} send you a message`,
-//   Body: `Name : ${name},
-//         Email : ${email}, 
-//         Subject : ${subject}, 
-//         Message: ${message}`
-// }).then((message) =>
-// //anything goes here....
-//    console.log("Email has been sent")
-// );
 
 app.post('/email', (req, res) => {
   //Send an email here but currently dummy email
