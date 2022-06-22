@@ -1,11 +1,11 @@
 //importing modules (libraries)
 require('dotenv').config();
-var path = require('path');
-var express = require('express');
-var ejs = require("ejs")
-var bodyParser = require("body-parser")
-var cookieParser = require("cookie-parser");
-const secret  = require('./config/secret');
+const path = require('path');
+const express = require('express');
+const ejs = require("ejs")
+const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser");
+const secret = require('./config/secret');
 const passport = require('passport');
 const flash =  require('connect-flash');
 const session = require('express-session');
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //helps us to activate or gives permission to the server to know the user 
 app.use(session({
-    secret: 'secret',
+    hidden: 'hidden',
     saveUninitialized: true,
     resave: true
   }));
@@ -74,7 +74,7 @@ mongoose.connect(secret.databaseURL, {
     useUnifiedTopology:true
 }).then(()=>{
   console.log('we are already connected to the server database');
-  app.listen(secret.PORT, () => {
+  app.listen(secret.PORT || 5000, () => {
     console.log("This application is already running on port " , secret.PORT);
   });
 }).catch(err => {
