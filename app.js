@@ -68,13 +68,13 @@ mongoose.set('useFindAndModify', false);
 // use create index set to true
 mongoose.set('useCreateIndex', true);
 
-mongoose.connect(secret.databaseURL, {
+mongoose.connect(process.env.databaseURL, {
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(()=>{
   console.log('we are already connected to the server database');
-  app.listen(secret.PORT || 5000, () => {
-    console.log("This application is already running on port " , secret.PORT);
+  app.listen(process.env.PORT, () => {
+    console.log("This application is already running on port " , process.env.PORT);
   });
 }).catch(err => {
   console.log('could not connect to mongoDB', err)
